@@ -82,7 +82,7 @@ const Businessform = (props) => {
 			return true;
 		}
 	};
-
+                      //Listing Style as well as User Data //
 	useEffect(
 		() => {
 			setShowLoading(true);
@@ -114,11 +114,12 @@ const Businessform = (props) => {
 		},
 		[ props.data ]
 	);
+	
 
 	const handleChange = (event) => {
 		setformdata({ ...formdata, [event.target.id]: event.target.value });
 	};
-
+//Image Upload Functionality//
 	const onDropprofile = (acceptedFiles) => {
 		let file = acceptedFiles[0];
 		let reader = new FileReader();
@@ -133,12 +134,12 @@ const Businessform = (props) => {
 			console.log(reader.error);
 		};
 	};
-
+// Make Form data Empty 
 	const reset = () => {
 		var win = window.open('/businesscard/' + formdata.name, '_blank');
 		win.focus();
 	};
-
+//Image Upload Functionality//
 	const onDroplogo = (acceptedFiles) => {
 		let file = acceptedFiles[0];
 
@@ -154,7 +155,8 @@ const Businessform = (props) => {
 			console.log(reader.error);
 		};
 	};
-
+	
+//After validation Add or Edit data 
 	const formSubmit = async () => {
 		var postData = {
 			id: props.data.id,
@@ -217,7 +219,7 @@ const Businessform = (props) => {
 				});
 		}
 	};
-
+////Back Page Functionality.
 	const back = () => {
 		props.history.push({
 			pathname: '/businesscardlist'
